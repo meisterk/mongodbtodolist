@@ -1,0 +1,19 @@
+<link rel="stylesheet" type="text/css" href="./layout.css" />
+
+<h1>Todoliste</h1>
+<ul>
+    <% liste.forEach(function(aufgabe) { %>
+        <li><%= aufgabe.text %>
+            <form action="/delete" method="POST">
+                <input type="hidden" name="id" value="<%= aufgabe._id %>">
+                <input type="submit" value="Löschen" />
+            </form>
+        </li>
+    <% }); %>
+</ul>
+
+<h2>Neuen Eintrag anlegen</h2>
+<form action = "/" method="POST">
+    <input type="text" name = "text" placeholder="Bitte neue Aufgabe eingeben" />
+    <input type="submit" value="Neu" />
+</form>
